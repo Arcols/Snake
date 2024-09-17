@@ -1,18 +1,16 @@
+const cellsType = {
+    empty : 0,
+    fruit : 1,
+    snake : 2
+};
+
 class Cell {
     constructor(x,y){
         this.x = x;
         this.y = y;
-        this.isPartOfSnake = false;
+        this.cellType = cellsType.empty;
     }
 
-    // Modify if the cell is a part of the snake or not
-    modifyCell(){
-        if(this.isPartOfSnake){
-            this.isPartOfSnake=false;
-        }else{
-            this.isPartOfSnake=true;
-        }
-    }
 }
 
 class Grid {
@@ -27,7 +25,7 @@ class Grid {
         }
     }
 
-    searchCell(x,y){return this.grid[x][y];}
+    getCell(x,y){return this.grid[x][y];}
 
     getBaseGridSize(){return 15;}
 
@@ -47,8 +45,30 @@ class Snake {
         this.size++;
         cell.modifyCell();
     }
+
 }
 
+class Fruit {
+
+    constructor(){
+        setx(8);
+        sety(8);
+    }
+    setx(x){
+        this.x=x
+    }
+    setx(y){
+        this.y=y
+    }
+
+    placeFruit(){
+        let a = Math.random() * 15;
+        return a ;
+    }
+
+
+}
 let grille = new Grid();
 console.log(grille.getBaseGridSize());
-
+let fruit = new Fruit();
+console.log(fruit.placeFruit());
