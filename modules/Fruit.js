@@ -1,20 +1,13 @@
+import { Grid } from './Grid.js';
 class Fruit {
 
     constructor(){
-        setx(8);
-        sety(8);
+        this.setX(7);
+        this.setY(8);
     }
-    setx(x){
-        this.x=x
-    }
-    setx(y){
-        this.y=y
-    }
+    setX(x){this.x=x}
+    setY(y){this.y=y}
 
-    placeFruit(){
-        let a = Math.random() * 15;
-        return a ;
-    }
 }
 
 export { Fruit };
