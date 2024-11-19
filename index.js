@@ -1,8 +1,11 @@
 import { Player } from './modules/Player.js';
+import { initializeCanvas,drawGrid } from './modules/displayGrid.js';
+
 const cooling = 0.012;
 const size = 750;
 let idInterval;
 
+/*
 function startGame(){
     let player = new Player();
     player.initialiseFruit();
@@ -31,7 +34,10 @@ function mainGame(){
         console.log("Tu pues tes morts");
     }
 }
+    
+
 mainGame();
+*/
 
 // function draw(){
 //     var canvas = document.getElementById("board");
@@ -51,6 +57,7 @@ mainGame();
 
 const canvas = document.getElementById('board');
 const context = canvas.getContext('2d');
+initializeCanvas('board');
 
 // Fonction pour redimensionner le canvas
 function resizeCanvas() {
@@ -60,24 +67,8 @@ function resizeCanvas() {
     context.fillStyle = "lightblue";
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
-resizeCanvas();
 
-// Fonction pour charger et dessiner une image
-function drawImage(imageSrc, x, y, width, height) {
-    const img = new Image();
-    img.src = imageSrc;
-    img.onload = function() {
-        context.drawImage(img, x, y, width, height);
-    };
-}
-function drawGrid(){
-    for(let i=0;i<canvas.width;i+=canvas.width/15){
-        for(let j=0;j<canvas.height;j+=canvas.height/15){
-            drawImage('./pictures/impair.png', i, j, canvas.width/15, canvas.height/15);
-            
-        }   
-    }
-}
+resizeCanvas();
 drawGrid();
 
 // Réajuster le canvas à chaque changement de taille de la fenêtre
