@@ -12,7 +12,7 @@ class Grid {
                 }
             }
         }
-        this.placeFruit();
+        this.fruit=this.placeFruit();
     }
 
     getCell(x,y){return this.grid[x][y];}
@@ -21,7 +21,8 @@ class Grid {
 
     getFruit(){
         console.log(this.fruit);
-        return this.fruit;}
+        return this.fruit;
+    }
 
     // Change a random cell from empty --> fruit
     // In : Grid
@@ -38,7 +39,7 @@ class Grid {
             y = randomIntFromInterval(0,this.getBaseGridSize()-1);
         };
         this.getCell(x,y).modifyCellType(cellsType.fruit);
-        this.fruit=this.getCell(x,y);
+        return new Cell(x,y,cellsType.fruit);
     }
 
     // displayGrid(){ 
