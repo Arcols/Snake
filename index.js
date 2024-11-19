@@ -57,6 +57,7 @@ resizeCanvas();
 // Réajuster le canvas à chaque changement de taille de la fenêtre
 window.addEventListener('resize', () => {
     resizeCanvas();
+    draw();
 });  
 mainGame();
 
