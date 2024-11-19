@@ -1,5 +1,5 @@
 import { Snake,orientation } from './Snake.js'
-import { Cell,cellsType } from './Cell.js';
+import { cellsType } from './Cell.js';
 import { Grid } from './Grid.js';
 
 
@@ -44,7 +44,7 @@ class Player{
         || nextCellType==cellsType.snake){
                 return true;
             }else{return false;}
-}
+    }
 
     // True if the player have won the game
     isWin(){return this.score==(this.grid.getBaseGridSize()-1)*(this.grid.getBaseGridSize()-1)-3;}
@@ -56,11 +56,10 @@ class Player{
     inputPlayer(){
         document.addEventListener('keydown',(event)=> {  
             switch (event.key) {
-                case 'ArrowUp' :
+                case 'ArrowUp':
                     if(this.snake.getOrientation()!=orientation.south){
                         this.snake.rotateSnake(orientation.north);
                     }
-                    
                     break;
                 case 'ArrowDown':
                     if(this.snake.getOrientation()!=orientation.north){
