@@ -12,11 +12,16 @@ class Grid {
                 }
             }
         }
+        this.placeFruit();
     }
 
     getCell(x,y){return this.grid[x][y];}
 
     getBaseGridSize(){return 16;}
+
+    getFruit(){
+        console.log(this.fruit);
+        return this.fruit;}
 
     // Change a random cell from empty --> fruit
     // In : Grid
@@ -33,21 +38,21 @@ class Grid {
             y = randomIntFromInterval(0,this.getBaseGridSize()-1);
         };
         this.getCell(x,y).modifyCellType(cellsType.fruit);
-        return this.getCell(x,y);
+        this.fruit=this.getCell(x,y);
     }
 
-    displayGrid(){ 
-        let gridAux=[]
-        for(let row=0;row<this.getBaseGridSize();row++){
-            gridAux.push([])
-            for(let col=0;col<this.getBaseGridSize();col++){
-                gridAux[row].push(this.getCell(row,col).getCellType());
-            }
-        }
-        for(let row of gridAux){
-            console.log(row);
-        };
-    }
+    // displayGrid(){ 
+    //     let gridAux=[]
+    //     for(let row=0;row<this.getBaseGridSize();row++){
+    //         gridAux.push([])
+    //         for(let col=0;col<this.getBaseGridSize();col++){
+    //             gridAux[row].push(this.getCell(row,col).getCellType());
+    //         }
+    //     }
+    //     for(let row of gridAux){
+    //         console.log(row);
+    //     };
+    // }
     
 }
 

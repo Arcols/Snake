@@ -24,9 +24,9 @@ class Player{
 
     getScore(){return this.score;}
 
-    displayGame(){
+    /*displayGame(){
         this.grid.displayGrid();
-    }
+    }*/
 
     moove(){
         let nextCell=this.snake.getNextCell(this.grid);
@@ -51,37 +51,6 @@ class Player{
 
     initialiseFruit(){
         this.grid.placeFruit();
-    }
-
-    inputPlayer(){
-        document.addEventListener('keydown',(event)=> {  
-            switch (event.key) {
-                case 'ArrowUp':
-                    if(this.snake.getOrientation()!=orientation.south){
-                        this.snake.rotateSnake(orientation.north);
-                    }
-                    break;
-                case 'ArrowDown':
-                    if(this.snake.getOrientation()!=orientation.north){
-                        this.snake.rotateSnake(orientation.south);
-                    }
-                    break;
-                case 'ArrowLeft':
-                    if(this.snake.getOrientation()!=orientation.east){
-                        this.snake.rotateSnake(orientation.west);
-                    }
-                    break;
-                case 'ArrowRight':
-                    if(this.snake.getOrientation()!=orientation.east){
-                        this.snake.rotateSnake(orientation.east);
-                    }
-                    break;
-                default :
-                    break;
-                }
-            }
-        );
-    
     }
 
 }

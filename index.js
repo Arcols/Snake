@@ -36,7 +36,7 @@ function midGame(player){
         clearInterval(idInterval);
     }
     player.moove();
-    player.displayGame();
+    //player.displayGame();
 }
 
 
