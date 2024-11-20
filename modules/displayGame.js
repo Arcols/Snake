@@ -69,7 +69,7 @@ function draw(player){
     drawBlankGrid();
     drawHead(player.getSnake());
     drawBody(player.getSnake());
-    console.log(player.getGrid().getFruit());
+    //console.log(player.getGrid().getFruit());
 }
 
 export { draw, cellSize,drawBlankGrid };
