@@ -4,8 +4,8 @@ import { Grid } from './Grid.js';
 
 
 class Player{
-    constructor(){
-        this.grid=new Grid();
+    constructor(size){
+        this.grid=new Grid(size);
         this.placeTheSnake();
         this.score=0;
         this.inputPlayer();
@@ -13,9 +13,10 @@ class Player{
 
     placeTheSnake(){
         this.snake=new Snake();
-        this.snake.addACell(this.grid.getCell(7,4));
-        this.snake.addACell(this.grid.getCell(7,3));
-        this.snake.addACell(this.grid.getCell(7,2));
+        let center = Math.floor(this.grid.getBaseGridSize()/2);
+        this.snake.addACell(this.grid.getCell(center,center));
+        this.snake.addACell(this.grid.getCell(center,center-1));
+        this.snake.addACell(this.grid.getCell(center,center-2));
     }
 
     getGrid(){return this.grid;}
@@ -24,9 +25,9 @@ class Player{
 
     getScore(){return this.score;}
 
-    /*displayGame(){
+    displayGame(){
         this.grid.displayGrid();
-    }*/
+    }
 
     moove(){
         let nextCell=this.snake.getNextCell(this.grid);

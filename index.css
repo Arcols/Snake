@@ -9,5 +9,13 @@ body, html {
 }
 
 canvas {
-    border: 1px solid black;
+    position : absolute;
+}
+
+#board{
+    z-index: 2;
+}
+
+#backgroundboard{
+    z-index: 1;
 }

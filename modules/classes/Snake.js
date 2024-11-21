@@ -1,6 +1,4 @@
-import { Cell,cellsType } from './Cell.js';
-import { Grid } from './Grid.js';
-
+import { cellsType } from './Cell.js';
 class Snake {
 
     constructor(){
