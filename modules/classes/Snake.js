@@ -17,7 +17,7 @@ class Snake {
 
     getHead(){return this.listCells[0];}
 
-    getEndTail(){return this.listCells[this.listCells.length-1];}
+    getTail(){return this.listCells[this.listCells.length-1];}
 
     // Get the next cell where the snake will be
     // In : Grid 
