@@ -13,13 +13,13 @@ Ce projet est une implémentation du jeu classique Snake en JavaScript. Le jeu u
 1. Clonez le dépôt sur votre machine locale :
 
     ```bash
-    git clone https://github.com/votre-utilisateur/snake-game.git
+    git clone https://github.com/votre-utilisateur/snake.git
     ```
 
 2. Accédez au répertoire du projet :
 
     ```bash
-    cd snake-game
+    cd snake
     ```
 
 3. Ouvrez le fichier `index.html` dans votre navigateur préféré pour jouer au jeu.
