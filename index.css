@@ -12,11 +12,11 @@ canvas {
     position : absolute;
 }
 
-#board{
-    z-index: 2;
+#backgroundboard {
+    z-index: 0;
 }
 
-#backgroundboard{
+#board {
     z-index: 1;
 }
 
