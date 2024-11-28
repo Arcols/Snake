@@ -1,60 +1,27 @@
 import { mainGame } from './modules/game/Game.js';
-
-let cellSize;
-let boardCanvas;
-let boardContext;
-let backgroundCanvas;
-let backgroundContext;
-const cooling = 0.012;
+import {draw} from './modules/game/DisplayGame.js';
+import CanvasManager from './modules/classes/CanvasManager.js'; // Utilisez l'export par défaut
 const size = 750;
-
-
-
-// Fonction pour redimensionner le canvas
-function resizeCanvas() {
-    boardCanvas.width = size;
-    boardCanvas.height = size;
-    boardContext.fillStyle = "rgba(0, 0, 200, 0)";
-    boardContext.fillRect(0, 0, boardCanvas.width, boardCanvas.height);
-
-    backgroundCanvas.width = size;
-    backgroundCanvas.height = size;
-    backgroundContext.fillStyle = "lightgrey";
-    backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-
-}
-
-function initializeCanvas(canvasElementId) {
-    const canvas = document.getElementById(canvasElementId);
-    const context = canvas.getContext('2d');
-    return { canvas, context };
-}
-
-// // popup pour inserer le nombre de cases
-// let taille = prompt("Entrez le nombre de cases : ");
-// taille = parseInt(taille);
-// while(isNaN(taille)){
-//     taille = prompt("Entrez le nombre de cases : ");
-//     taille = parseInt(taille);
-// }
-
-cellSize = size/16;
-
-// Initialiser les canvas
-const board = initializeCanvas('board');
-boardCanvas = board.canvas;
-boardContext = board.context;
-
-const background = initializeCanvas('backgroundboard');
-backgroundCanvas = background.canvas;
-backgroundContext = background.context;
-resizeCanvas();
+const canvasManager = new CanvasManager(size);
+canvasManager.initialize();
+const cellSize = canvasManager.getCellSize();
 
 // Réajuster le canvas à chaque changement de taille de la fenêtre
 window.addEventListener('resize', () => {
-    resizeCanvas();
-    draw();
-});  
-mainGame(16,board,background);
+    canvasManager.resize();
+    //draw();
+});
 
-export {cellSize,size };
+mainGame(16, canvasManager.getBoardCanvas(), canvasManager.getBackgroundCanvas());
+
+function updateScore(score) {
+    const scoreDiv = document.getElementById('score');
+    scoreDiv.textContent = `Score: ${score}`;
+    scoreDiv.style.display = 'none';
+    scoreDiv.offsetHeight; // Force reflow
+    scoreDiv.style.display = 'block';
+}
+const scoreDiv = document.getElementById('score');
+scoreDiv.textContent = `Score: `;
+
+export {cellSize,updateScore};

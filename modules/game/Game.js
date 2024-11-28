@@ -1,5 +1,7 @@
-import { Player } from "../classes/Player.js";
-import { draw,drawBlankGrid } from "./DisplayGame.js";
+import { Player } from "../classes/snakeClasses/Player.js";
+import { draw,drawBlankGrid,clearTail } from "./DisplayGame.js";
+import { updateScore } from '../../index.js'; // Importez la fonction updateScore
+
 let idInterval;
 
 
@@ -15,10 +17,12 @@ function midGame(player,board){
     if(player.nextCellIsLoose()){
         clearInterval(idInterval);
     }
+    clearTail(board,player.getSnake());
     player.moove();
     draw(player,board);
-    //player.displayGame();
+    updateScore(player.getScore());
 }
+
 // In : Size (size of the grid)
 //      board (Pair of canva and context of board)
 //      background (Pair of canva and context of background)

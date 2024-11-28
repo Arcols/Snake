@@ -46,13 +46,11 @@ function drawFruit(tupleCanva,fruit){
 }
 
 function clearTail(tupleCanva,snake){
-    console.log(snake.getTail().getCoordinates());
     let coordinates = calculateCoordonatesElementOnGrid(snake.getTail().getCoordinates()[0],snake.getTail().getCoordinates()[1]);
-    drawImage(tupleCanva.context,'./pictures/rien.png',coordinates[1]-cellSize,coordinates[0],cellSize,cellSize);
+    clearSquare(tupleCanva.context,coordinates[1],coordinates[0],cellSize,cellSize);
 }
 
 function drawBlankGrid(tupleCanva){  
-    console.log(tupleCanva);
     for (let x = 0; x< tupleCanva.canvas.width; x += cellSize) {
         for (let y = 0; y < tupleCanva.canvas.height; y += cellSize) {
             let cellType = getCellTypeWithCoordinates(tupleCanva,x, y, cellSize);
@@ -77,7 +75,7 @@ function draw(player,tupleCanva){
     drawFruit(tupleCanva,player.getGrid().getFruit());
     drawHead(tupleCanva,player.getSnake());
     drawBody(tupleCanva,player.getSnake());
-    clearTail(tupleCanva,player.getSnake());
 
 }
-export { draw,drawBlankGrid };
+
+export { draw,drawBlankGrid,clearTail };

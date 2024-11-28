@@ -73,7 +73,7 @@ class Player{
                     }
                     break;
                 case 'ArrowRight':
-                    if(this.snake.getOrientation()!=orientation.east){
+                    if(this.snake.getOrientation()!=orientation.west){
                         this.snake.rotateSnake(orientation.east);
                     }
                     break;
