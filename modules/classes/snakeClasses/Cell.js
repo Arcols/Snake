@@ -26,7 +26,6 @@ class Cell {
             this.cellType=typeOfCell;
         }
     }
-
 }
 const cellsType = {
     empty : 0,

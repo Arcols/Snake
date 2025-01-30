@@ -26,13 +26,13 @@ class Snake {
         let head = this.getHead().getCoordinates();
         switch (this.orientation) {
             case orientation.north :
-               return grid.getCell(head[0] - 1,head[1]);
+               return grid.getCell(head[0],head[1]-1);
             case orientation.south :
-                return grid.getCell(head[0]+1,head[1]);
-            case orientation.east :
                 return grid.getCell(head[0],head[1]+1);
+            case orientation.east :
+                return grid.getCell(head[0]+1,head[1]);
             case orientation.west :
-                return grid.getCell(head[0],head[1]-1);
+                return grid.getCell(head[0]-1,head[1]);
             default :
                 console.log("How the hell did there is another orientation ????");
                 break;
@@ -59,7 +59,16 @@ class Snake {
 
     rotateSnake(orientation){this.orientation=orientation;}
 
+    getCoordinates(){
+        let coordinates=[];
+        for(let i=0;i<this.listCells.length;i++){
+            coordinates.push(this.listCells[i].getCoordinates());
+        }
+        return coordinates;
+    }
+
 }
+
 const orientation = {
     north : 0,
     east : 1,

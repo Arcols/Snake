@@ -10,6 +10,7 @@ function drawImage(context,imageSrc, x, y, width, height) {
 }
 
 function clearSquare(context, x, y, width, height) {
+    console.log('clearing square at coordinates : ', x, y);
     context.clearRect(x, y, width, height);
 }
 
@@ -31,23 +32,23 @@ function drawBody(tupleCanva,snake){
     let listCells = snake.getListCells();
     for(let i=1;i<listCells.length;i++){
         let coordinates = calculateCoordonatesElementOnGrid(listCells[i].getCoordinates()[0],listCells[i].getCoordinates()[1]);
-        drawImage(tupleCanva.context,'./pictures/snakeBody.png',coordinates[1],coordinates[0],cellSize,cellSize);
+        drawImage(tupleCanva.context,'./ressources/pictures/snakeBody.png',coordinates[0],coordinates[1],cellSize,cellSize);
     }
 }
 
 function drawHead(tupleCanva,snake){
     let coordinates = calculateCoordonatesElementOnGrid(snake.getHead().getCoordinates()[0],snake.getHead().getCoordinates()[1]);
-    drawImage(tupleCanva.context,'./pictures/snakeHead.png',coordinates[1],coordinates[0],cellSize,cellSize);
+    drawImage(tupleCanva.context,'./ressources/pictures/snakeHead.png',coordinates[0],coordinates[1],cellSize,cellSize);
 }
 
 function drawFruit(tupleCanva,fruit){
     let coordinates = calculateCoordonatesElementOnGrid(fruit.getX(),fruit.getY());
-    drawImage(tupleCanva.context,'./pictures/fruit.png',coordinates[1],coordinates[0],cellSize,cellSize);
+    drawImage(tupleCanva.context,'./ressources/pictures/fruit.png',coordinates[0],coordinates[1],cellSize,cellSize);
 }
 
 function clearTail(tupleCanva,snake){
     let coordinates = calculateCoordonatesElementOnGrid(snake.getTail().getCoordinates()[0],snake.getTail().getCoordinates()[1]);
-    clearSquare(tupleCanva.context,coordinates[1],coordinates[0],cellSize,cellSize);
+    clearSquare(tupleCanva.context,coordinates[0],coordinates[1],cellSize,cellSize);
 }
 
 function drawBlankGrid(tupleCanva){  
@@ -56,13 +57,13 @@ function drawBlankGrid(tupleCanva){
             let cellType = getCellTypeWithCoordinates(tupleCanva,x, y, cellSize);
             switch (cellType) {
                 case 'wall':
-                    drawImage(tupleCanva.context,'./pictures/purple/wall.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./ressources/pictures/purple/wall.png', x, y, cellSize, cellSize);
                     break;
                 case 'pair':
-                    drawImage(tupleCanva.context,'./pictures/purple/pair.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./ressources/pictures/purple/pair.png', x, y, cellSize, cellSize);
                     break;
                 case 'impair':
-                    drawImage(tupleCanva.context,'./pictures/purple/impair.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./ressources/pictures/purple/impair.png', x, y, cellSize, cellSize);
                     break;
                 default :
                     console.log('Bro wtf ???');
@@ -72,10 +73,10 @@ function drawBlankGrid(tupleCanva){
 }
 
 function draw(player,tupleCanva){
+    drawBlankGrid(tupleCanva,player.getSnake());
     drawFruit(tupleCanva,player.getGrid().getFruit());
     drawHead(tupleCanva,player.getSnake());
     drawBody(tupleCanva,player.getSnake());
-
 }
 
 export { draw,drawBlankGrid,clearTail };

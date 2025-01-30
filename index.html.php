@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake</title>
+    <title>Snake Game</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/game.css">
 </head>
     <main>
     </main>
@@ -13,6 +13,10 @@
     <div id="score"></div>
     <canvas id="backgroundboard"></canvas>
     <canvas id="board"></canvas>
+    <div id="gameover">
+        <h1>T'as perdu AHAHAH CHEH</h1>
+        <button>Rejouer ????</button>
+    </div>
     <script type="module" src="index.js"></script>
 </body>
 

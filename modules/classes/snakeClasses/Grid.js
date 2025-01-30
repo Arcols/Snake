@@ -3,17 +3,16 @@ class Grid {
     constructor(size){
         this.baseGridSize=size;
         this.grid=[];
-        for(let row=0;row<this.baseGridSize;row++){
+        for(let x=0;x<this.baseGridSize;x++){
             this.grid.push([]);
-            for(let col=0;col<this.baseGridSize;col++){
-                if(col==0 || row==0 || col==this.baseGridSize-1 || row==this.baseGridSize-1){
-                    this.grid[row].push(new Cell(row,col,cellsType.wall));
+            for(let y=0;y<this.baseGridSize;y++){
+                if(y==0 || x==0 || y==this.baseGridSize-1 || x==this.baseGridSize-1){
+                    this.grid[x].push(new Cell(x,y,cellsType.wall));
                 }else{
-                    this.grid[row].push(new Cell(row,col));
+                    this.grid[x].push(new Cell(x,y));
                 }
             }
         }
-        this.placeFruit();
     }
 
     getBaseGridSize(){return this.baseGridSize;}
@@ -41,16 +40,15 @@ class Grid {
     }
 
     displayGrid(){ 
-        console.log("affichage de la grille");
         let gridAux=[]
-        for(let row=0;row<this.baseGridSize;row++){
+        for(let x=0;x<this.baseGridSize;x++){
             gridAux.push([])
-            for(let col=0;col<this.baseGridSize;col++){
-                gridAux[row].push(this.getCell(row,col).getCellType());
+            for(let y=0;y<this.baseGridSize;y++){
+                gridAux[x].push(this.getCell(x,y).getCellType());
             }
         }
-        for(let row of gridAux){
-            console.log(row);
+        for(let x of gridAux){
+            console.log(x);
         };
     }
     
