@@ -3,7 +3,6 @@ import { draw, drawBlankGrid } from "./DisplayGame.js";
 import { updateScore } from '../../index.js'; 
 
 function startGame(size, background) {
-    drawBlankGrid(background);
     let player = new Player(size);
     player.initialiseFruit();
     return player;
@@ -15,6 +14,26 @@ function looseGame(player, board) {
     const replayButton = gameOver.querySelector('button');
     replayButton.addEventListener('click', () => {
         location.reload();
+
+    });
+    sendScore(player.getScore());
+}
+
+function sendScore(score) {
+    const path = 'php/game.php'
+    fetch(path, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `score=${score}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
     });
 }
 

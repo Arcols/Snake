@@ -10,6 +10,10 @@
     <main>
     </main>
 <body>
+    <div class="header">
+        <?php include './pages/header.html'; ?>
+    </div>
+    <?php include './php/game.php'; ?>
     <div id="score"></div>
     <canvas id="backgroundboard"></canvas>
     <canvas id="board"></canvas>
