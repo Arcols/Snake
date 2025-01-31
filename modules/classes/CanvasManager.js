@@ -6,8 +6,6 @@ class CanvasManager {
         this.cellSize = size / 16;
         this.boardCanvas = null;
         this.boardContext = null;
-        this.backgroundCanvas = null;
-        this.backgroundContext = null;
     }
 
     initialize() {
@@ -15,25 +13,17 @@ class CanvasManager {
         this.boardCanvas = board.canvas;
         this.boardContext = board.context;
 
-        const background = initializeCanvas('backgroundboard');
-        this.backgroundCanvas = background.canvas;
-        this.backgroundContext = background.context;
-
         this.resize();
     }
 
     resize() {
-        resizeCanvas(this.boardCanvas, this.boardContext, this.backgroundCanvas, this.backgroundContext, this.size);
+        resizeCanvas(this.boardCanvas, this.boardContext, this.size);
     }
 
     getBoardCanvas() {
         return { canvas: this.boardCanvas, context: this.boardContext };
     }
-
-    getBackgroundCanvas() {
-        return { canvas: this.backgroundCanvas, context: this.backgroundContext };
-    }
-
+    
     getCellSize() {
         return this.cellSize;
     }

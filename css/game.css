@@ -10,20 +10,17 @@ body, html {
 }
 
 canvas {
-    position : absolute;
-}
-
-#backgroundboard {
-    z-index: 0;
+    position: float; 
 }
 
 #board {
     z-index: 1;
 }
+
 #score {
     font-size: 20px;
     color: black;
-    position: absolute;
+    position: relative;
     top: 10px;
     left: 10px;
     z-index: 2;

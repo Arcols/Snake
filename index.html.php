@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <!-- Styles -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/game.css">
 </head>
-    <main>
-    </main>
 <body>
-    <div class="header">
-        <?php include './pages/header.html'; ?>
-    </div>
-    <?php include './php/game.php'; ?>
-    <div id="score"></div>
-    <canvas id="backgroundboard"></canvas>
-    <canvas id="board"></canvas>
-    <div id="gameover">
-        <h1>T'as perdu AHAHAH CHEH</h1>
-        <button>Rejouer ????</button>
-    </div>
+    <?php include './pages/header.html'; ?>
+    <main>
+        <?php include './php/game.php'; ?>
+        <div id="score"></div>
+        <canvas id="board"></canvas>
+        <div id="gameover">
+            <h1>T'as perdu AHAHAH CHEH</h1>
+            <button>Rejouer ????</button>
+        </div>
+    </main>
     <script type="module" src="index.js"></script>
 </body>
 

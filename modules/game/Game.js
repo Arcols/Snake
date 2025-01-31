@@ -1,14 +1,14 @@
 import { Player } from "../classes/snakeClasses/Player.js";
-import { draw, drawBlankGrid } from "./DisplayGame.js";
+import { draw } from "./DisplayGame.js";
 import { updateScore } from '../../index.js'; 
 
-function startGame(size, background) {
+function startGame(size) {
     let player = new Player(size);
     player.initialiseFruit();
     return player;
 }
 
-function looseGame(player, board) {
+function looseGame(player) {
     const gameOver = document.getElementById('gameover');
     gameOver.classList.add('show');
     const replayButton = gameOver.querySelector('button');
@@ -29,9 +29,6 @@ function sendScore(score) {
         body: `score=${score}`
     })
     .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
     .catch(error => {
         console.error('Erreur:', error);
     });
@@ -53,9 +50,8 @@ function midGame(player, board, idInterval) {
 
 // In : Size (size of the grid)
 //      board (Pair of canva and context of board)
-//      background (Pair of canva and context of background)
-function mainGame(size, board, background) {
-    let player = startGame(size, background);
+function mainGame(size, board) {
+    let player = startGame(size);
     let idInterval;
     // Ajouter un délai avant de commencer le jeu
     setTimeout(() => {

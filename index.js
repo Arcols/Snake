@@ -5,7 +5,7 @@ const canvasManager = new CanvasManager(size);
 canvasManager.initialize();
 const cellSize = canvasManager.getCellSize();
 
-mainGame(16, canvasManager.getBoardCanvas(), canvasManager.getBackgroundCanvas());
+mainGame(16, canvasManager.getBoardCanvas());
 
 function updateScore(score) {
     const scoreDiv = document.getElementById('score');
