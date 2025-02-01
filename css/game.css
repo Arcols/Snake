@@ -3,26 +3,28 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #f0f0f0;
 }
 
-canvas {
-    position: float; 
+#content {
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-#board {
+#boardingame {
+    position :absolute;
+    width: 100%;
+    text-align: center;
     z-index: 1;
 }
 
 #score {
+    position : absolute;
+    text-align: center;
     font-size: 20px;
     color: black;
-    position: relative;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: 10%;
     z-index: 2;
 }
 

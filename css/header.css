@@ -1,37 +1,35 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    height : 10%;
 }
 
-.header {
+header {
     background-color: #4CAF50; /* Couleur de fond */
     color: white; /* Couleur du texte */
     padding: 20px; /* Espacement intérieur */
     text-align: center; /* Centrer le texte */
-    position: fixed; /* Position fixe */
-    top: 0; /* En haut de la page */
     width: 100%; /* Prendre toute la largeur */
-    z-index: 1000; /* Assurer que le header est au-dessus des autres éléments */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    position: relative; /* Position relative pour s'assurer qu'il est en haut */
+    top: 0; /* En haut de la page */
 }
 
-.header h1 {
+header h1 {
     margin: 0; /* Supprimer la marge */
     font-size: 24px; /* Taille de la police */
 }
 
-.header nav {
+header nav {
     margin-top: 10px; /* Marge au-dessus de la navigation */
 }
 
-.header nav a {
+header nav a {
     color: white; /* Couleur des liens */
     text-decoration: none; /* Supprimer la décoration des liens */
     margin: 0 15px; /* Espacement entre les liens */
     font-size: 18px; /* Taille de la police des liens */
 }
 
-.header nav a:hover {
+header nav a:hover {
     text-decoration: underline; /* Souligner les liens au survol */
 }

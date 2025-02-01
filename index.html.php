@@ -2,24 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
-    <!-- Styles -->
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/game.css">
+    <title>Connexion</title>
 </head>
 <body>
-    <?php include './pages/header.html'; ?>
-    <main>
-        <?php include './php/game.php'; ?>
-        <div id="score"></div>
-        <canvas id="board"></canvas>
-        <div id="gameover">
-            <h1>T'as perdu AHAHAH CHEH</h1>
-            <button>Rejouer ????</button>
+    <form method="POST" action="">
+        <div>
+            <input type="text" name="login" placeholder="Identifiant" required><br>
         </div>
-    </main>
-    <script type="module" src="index.js"></script>
+        <div>
+            <input type="password" name="mdp" placeholder="Mot de passe" required><br>
+        </div>
+        <!-- REMEMBER ME COOKIE HANDLER -->
+        <button type="submit">Se connecter</button>
+        <p>Pas encore de compte ? <a href="./pages/inscription.html.php">Inscrivez-vous</a></p>
+        <?php include './php/connection.php'; ?>
+    </form>
 </body>
-

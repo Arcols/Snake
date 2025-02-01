@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Connexion réussie
                 session_start();
                 $_SESSION['login'] = $login; // Stocke le login dans la session
-                header("Location: ./../"); // Redirige vers la page principale
+                header("Location: ./pages/game.html.php"); // Redirige vers la page principale
                 echo "<p>Connexion réussie.</p>";
                 exit;
             } else {

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Insérer l'utilisateur dans la base de données
         $stmt = $pdo->prepare("INSERT INTO utilisateur (login, mdp) VALUES (:login, :mdp)");
         $stmt->execute([':login' => $login, ':mdp' => $mdp_hache]);
-
+        header("Location: ./../"); // Redirige vers la page principale
         echo "<p>Inscription réussie.</p>";
     } else {
         echo "<p>Veuillez remplir tous les champs.</p>";
