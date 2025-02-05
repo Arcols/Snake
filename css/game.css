@@ -6,26 +6,71 @@ body, html {
     background-color: #f0f0f0;
 }
 
-#content {
-    display : grid;
-    grid-template-columns: 1fr 1fr 1fr;
+main{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: start;
+    justify-content: space-between;
+}
+
+main :nth-child(1){
+    width : max-content;
 }
 
 #boardingame {
-    position :absolute;
     width: 100%;
-    text-align: center;
     z-index: 1;
+    width: max-content;
 }
 
-#score {
-    position : absolute;
-    text-align: center;
+
+
+main :nth-child(1) > div{
+    background-color: #4CAF50; 
+    color: #fff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+    text-align: center; 
+    font-size: 18px; 
+    z-index: 2;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+#ranking {
     font-size: 20px;
     color: black;
     top: 50%;
-    left: 10%;
+    right: 10%;
     z-index: 2;
+}
+
+#ranking table {
+
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#ranking th, #ranking td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#ranking th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#ranking tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ranking tr:hover {
+    background-color: #ddd;
 }
 
 #gameover {
