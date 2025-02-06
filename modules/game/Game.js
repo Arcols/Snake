@@ -9,18 +9,17 @@ function startGame(size) {
 }
 
 function looseGame(player) {
-    /**const gameOver = document.getElementById('gameover');
+    const gameOver = document.getElementById('gameover');
     gameOver.classList.add('show');
     const replayButton = gameOver.querySelector('button');
     replayButton.addEventListener('click', () => {
         location.reload();
-
     });
-    sendScore(player.getScore());**/
+    sendScore(player.getScore());
 }
 
 function sendScore(score) {
-    const path = 'php/game.php'
+    const path = './../php/game.php'
     fetch(path, {
         method: 'POST',
         headers: {

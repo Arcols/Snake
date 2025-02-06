@@ -12,7 +12,7 @@
 
         // Récupérer les joueurs et leurs statistiques de participation
         $stmt = $pdo->query("
-            SELECT DISTINCT p.login, p.dateGame, g.score
+            SELECT DISTINCT p.login, g.score
             FROM participer p
             JOIN game g ON p.idgame = g.idgame
             JOIN (
