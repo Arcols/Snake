@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 :root {
     --hard-green:#007747;
     --green:#1E9841;
     --light-green:#88D48C;
     --soft-green:#5BBE6E;
+    --flashy-green:#45FA54;
     --light-gray:#E0DEDE;
+}
+
+body {
+    font-family: 'Fjalla One', sans-serif;
 }

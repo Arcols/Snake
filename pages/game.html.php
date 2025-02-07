@@ -23,11 +23,13 @@
         </div>
         <?php include './../php/ranking.php'; ?>   
         <div id="ranking">
+            <h1>LEADERBOARD</h1>
             <table>
             <tbody>
                 <!-- Affichage des données de chaque joueur -->
                 <?php $counter = 1; ?>
                 <?php foreach ($games as $joueur): ?>
+                    <?php if ($counter > 10) break; ?>
                     <tr>
                         <td><?= $counter ?></td>
                         <td><?= htmlspecialchars($joueur['login'] ?? '', ENT_QUOTES, 'UTF-8') ?></td>

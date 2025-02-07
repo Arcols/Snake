@@ -2,8 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Arial', sans-serif;
-	background-image: linear-gradient(var(--green), var(--light-green));
+	background: linear-gradient(to bottom,var(--light-green), var(--hard-green));
 }
 
 main{
@@ -14,7 +13,7 @@ main{
     justify-content: space-between;
 }
 
-main > div:nth-child(1){
+main:nth-child(1){
     width : max-content;
 }
 
@@ -28,6 +27,8 @@ main > div:nth-child(1){
 
 main :nth-child(1) > div{
     color: #fff; 
+    align-items: center;
+    background-color: var(--light-green);
     padding: 20px; 
     border-radius: 10px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
@@ -35,6 +36,7 @@ main :nth-child(1) > div{
     font-size: 18px; 
     z-index: 2;
     margin-left: 10%;
+    margin-right:10%;
     margin-top: 10%;
 }
 
@@ -46,32 +48,49 @@ main :nth-child(1) > div{
     z-index: 2;
 }
 
+#ranking h1 {
+    text-align: center;
+    margin-bottom: 5%;
+    color:var(--flashy-green);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 #ranking table {
     width: 90%;
     align-items: center;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 #ranking td {
     padding: 3%;
-    text-align: left;
+    flex : 2;
+    color : #aaaaaa;
 }
 
-#ranking tr:first-child {
-    color: white;
-    background-color: var(--green);
+#ranking td:first-child {
+    color:var(--hard-green);
     font-weight: bold;
-    border-radius: 10px;
+    text-align: left;
+    flex:1;
 }
+
+#ranking td:last-child {
+    color:var(--light-green);
+    text-align: right;
+    flex:1;
+}
+
+
 
 #ranking tr {
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #444;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 2%;
+    margin-left:5%;
+    border-radius: 15px;
 }
-
-
 
 #gameover {
     font-size: 50px;
