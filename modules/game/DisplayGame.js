@@ -1,4 +1,4 @@
-import { cellSize } from '../../index.js';
+import { cellSize } from './script.js';
 
 // Fonction pour charger et dessiner une image
 function drawImage(context,imageSrc, x, y, width, height) {
@@ -31,18 +31,18 @@ function drawBody(tupleCanva,snake){
     let listCells = snake.getListCells();
     for(let i=1;i<listCells.length;i++){
         let coordinates = calculateCoordonatesElementOnGrid(listCells[i].getCoordinates()[0],listCells[i].getCoordinates()[1]);
-        drawImage(tupleCanva.context,'./../ressources/pictures/snakeBody.png',coordinates[0],coordinates[1],cellSize,cellSize);
+        drawImage(tupleCanva.context,'./../../ressources/pictures/snakeBody.png',coordinates[0],coordinates[1],cellSize,cellSize);
     }
 }
 
 function drawHead(tupleCanva,snake){
     let coordinates = calculateCoordonatesElementOnGrid(snake.getHead().getCoordinates()[0],snake.getHead().getCoordinates()[1]);
-    drawImage(tupleCanva.context,'./../ressources/pictures/snakeHead.png',coordinates[0],coordinates[1],cellSize,cellSize);
+    drawImage(tupleCanva.context,'./../../ressources/pictures/snakeHead.png',coordinates[0],coordinates[1],cellSize,cellSize);
 }
 
 function drawFruit(tupleCanva,fruit){
     let coordinates = calculateCoordonatesElementOnGrid(fruit.getX(),fruit.getY());
-    drawImage(tupleCanva.context,'./../ressources/pictures/fruit.png',coordinates[0],coordinates[1],cellSize,cellSize);
+    drawImage(tupleCanva.context,'./../../ressources/pictures/fruit.png',coordinates[0],coordinates[1],cellSize,cellSize);
 }
 
 function clearTail(tupleCanva,snake){
@@ -56,13 +56,13 @@ function drawBlankGrid(tupleCanva){
             let cellType = getCellTypeWithCoordinates(tupleCanva,x, y, cellSize);
             switch (cellType) {
                 case 'wall':
-                    drawImage(tupleCanva.context,'./../ressources/pictures/purple/wall.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./../../ressources/pictures/purple/wall.png', x, y, cellSize, cellSize);
                     break;
                 case 'pair':
-                    drawImage(tupleCanva.context,'./../ressources/pictures/purple/pair.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./../../ressources/pictures/purple/pair.png', x, y, cellSize, cellSize);
                     break;
                 case 'impair':
-                    drawImage(tupleCanva.context,'./../ressources/pictures/purple/impair.png', x, y, cellSize, cellSize);
+                    drawImage(tupleCanva.context,'./../../ressources/pictures/purple/impair.png', x, y, cellSize, cellSize);
                     break;
                 default :
                     console.log('Bro wtf ???');

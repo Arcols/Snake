@@ -1,6 +1,6 @@
 import { Player } from "../classes/snakeClasses/Player.js";
 import { draw } from "./DisplayGame.js";
-import { updateScore } from '../../index.js'; 
+import { updateScore,looseGame } from './script.js'; 
 
 function startGame(size) {
     let player = new Player(size);
@@ -8,15 +8,7 @@ function startGame(size) {
     return player;
 }
 
-function looseGame(player) {
-    const gameOver = document.getElementById('gameover');
-    gameOver.classList.add('show');
-    const replayButton = gameOver.querySelector('button');
-    replayButton.addEventListener('click', () => {
-        location.reload();
-    });
-    sendScore(player.getScore());
-}
+
 
 function sendScore(score) {
     const path = './../php/game.php'
@@ -34,7 +26,7 @@ function sendScore(score) {
 }
 
 function midGame(player, board, idInterval) {
-    player.processInput(); // Process the latest input
+    player.processInput(); 
     if (player.nextCellIsLoose()) {
         clearInterval(idInterval);
         looseGame(player, board);
@@ -56,13 +48,13 @@ function mainGame(size, board) {
     setTimeout(() => {
         idInterval = setInterval(() => {
             midGame(player, board, idInterval);
-        }, 500);
+        }, 300);
     }, 1000); // Délai de 1 seconde avant de commencer le jeu
     setTimeout(() => {
         setInterval(() => {
             draw(player, board);
-        }, 500);
+        }, 300);
     }, 1000);
 }
 
-export { mainGame };
+export { mainGame,sendScore };
